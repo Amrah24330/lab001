@@ -1,0 +1,23 @@
+CREATE TABLE department7 (
+    lab_id integer NOT NULL,
+    name text NOT NULL,
+    activity_type text NOT NULL,
+    head_of_lab text NOT NULL,
+    number_of_wor integer NOT NULL,
+    availability_of_p boolean NOT NULL,
+    department_id integer,
+    PRIMARY KEY (lab_id)
+);
+
+CREATE TABLE laboratory (
+    "Department_num" int2vector NOT NULL,
+    faculty_code integer NOT NULL,
+    department_nar text NOT NULL,
+    graduating_dep character varying NOT NULL,
+    website integer NOT NULL,
+    phone_number numrange,
+    PRIMARY KEY (department_nar)
+);
+ALTER TABLE department7
+ADD CONSTRAINT fk_department_lab
+FOREIGN KEY (lab_id) REFERENCES laboratory(faculty_code);
